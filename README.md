@@ -2,7 +2,7 @@
 
 <html>
 <body>
-  <h1>EGYPTOS LANGUAGE</>
+  <h1>EGYPTOS LANGUAGE</h1>
 
   <b>1st arabic interpreter made with C lang</b>
   <ul>
