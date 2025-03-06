@@ -149,28 +149,35 @@ void tokenizer() {
 
             else if (strcmp(command, "print") == 0) {
                 char buffer[50];
+                int found = 0;
 
                 if (sscanf(commands[i], "db print(%[^ )]", buffer) == 1) {
 
-                        for (size_t j = 0; j < 100 && commands[j] != NULL; j++) {
+                        for (size_t j = 0; j < 100 && variables[j] != NULL; j++) {
 
                             if (strcmp(buffer, variables[j]->name) == 0) {
 
-                                if (variables[j]->value_i != 0) {
-                                    printf("%d",variables[j]->value_i);
+                                found = 1;
+
+                                if (variables[j]->value_i != NULL) {
+                                    printf("%d\n",variables[j]->value_i);
                                     break;
                                 }
 
                                 else if (variables[j]->value_s != NULL) {
-                                    printf("%s",variables[j]->value_s);
+                                    printf("%s\n",variables[j]->value_s);
                                     break;
                                 }
 
                                 else {
-                                    fprintf(stderr, "error - uninitialized variable %s\n", variables[j]->name);
+                                    fprintf(stderr, "error - uninitialized variable %s\n", buffer);
                                     break;
                                 }
                             }
+                        }
+                        if (found != 1) {
+                            fprintf(stderr, "error - undefined variable %s\n", buffer);
+                            break;
                         }
 
                 } else {
