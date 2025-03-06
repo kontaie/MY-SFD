@@ -13,5 +13,7 @@
       <p>programming language : C</p>
     </li>
   </ul>
+
+  <b>for more info : https://github.com/kontaie/MY-SFD/releases/tag/v1</b>
 </body>
 </html>
