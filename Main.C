@@ -152,9 +152,9 @@ void tokenizer() {
                 int found = 0;
 
                 if (sscanf(commands[i], "db print(%[^ )]", buffer) == 1) {
-
+                        found = 0;
                         for (size_t j = 0; j < 100 && variables[j] != NULL; j++) {
-
+                            
                             if (strcmp(buffer, variables[j]->name) == 0) {
 
                                 found = 1;
